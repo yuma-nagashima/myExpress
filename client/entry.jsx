@@ -1,1 +1,1 @@
- document.write(require("./app.jsx"));
+require("./app.jsx");

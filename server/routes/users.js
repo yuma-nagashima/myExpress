@@ -1,11 +1,7 @@
 var express = require('express');
-var bodyParser = require("body-parser");  // POST したデータをパースするために body-parser が別途必要
 var pg = require('pg');
 
 var router = express.Router();
-
-var app = express();
-app.use(bodyParser.json());
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -16,21 +12,8 @@ router.get('/', function(req, res, next) {
 
   // pg.connect(接続先, コールバック関数)
   pg.connect(connectionString, function(err, client){
-
       // client.query(SQL, コールバック関数)
       client.query("SELECT user_id, user_name,busi_name FROM com_m_user ", function(err, result){
-
-          // errにはerrorが発生した場合の情報が格納される
-          // resultに取得したデータが格納される
-          // 取得したデータ件数を表示する
-          console.log("Result:" + result.rows.length);
-
-          // 取得したデータの詳細を表示する
-          for(i=0; i < result.rows.length; i++){
-              console.log("id=" + result.rows[i].user_id +" name=" + result.rows[i].user_name);
-          }
-
-          //pretty: trueでjadeが出力するHTMLを改行＋インデント有りにする
           res.send(result)
       });
   });
