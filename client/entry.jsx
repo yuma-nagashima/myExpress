@@ -1,1 +1,1 @@
-require("./app.jsx");
+import  './app.jsx';
