@@ -1,18 +1,9 @@
-$header_background_color:#333;
-$header_text_color:#FDFDFD;
-$alternate_row_background_color: #DDD;
-
-$table_width: 850px;
-$table_body_height: 500px;
-
-$column_one_width: 35px;
-$column_two_width: 200px;
-$column_three_width: 300px;
-$column_four_width: 250px;
+@import "components/toggleButton"; 
 
 h1{
   color: green;
 }
+
 #main
 {
   color:#FFF;
@@ -22,6 +13,16 @@ h1{
 }
 
 .fixed_headers {
+  $header_background_color:#333;
+  $header_text_color:#FDFDFD;
+  $alternate_row_background_color: #DDD;
+  $table_width: 850px;
+  $table_body_height: 500px;
+  $column_one_width: 35px;
+  $column_two_width: 200px;
+  $column_three_width: 300px;
+  $column_four_width: 250px;
+
   width: $table_width;
   table-layout: fixed;
   border-collapse: collapse;
@@ -56,10 +57,48 @@ h1{
   }
 }
 
-.old_ie_wrapper {
-  height: $table_body_height;
-  width: $table_width;
-  overflow-x: hidden;
-  overflow-y: auto;
-  tbody { height: auto; }
+.calendar_table {
+  width:260px;
+  table-layout: fixed;
+  border-width:1px;
+  border-style:solid;
+  border-collapse:collapse;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+  td{
+        border-width:1px;
+        border-style:solid;
+        border-collapse:collapse;
+        border-color: DarkGray;
+        text-align: center;
+  }
+
+  thead {
+    //1行目
+    tr:nth-child(1) {
+      background-color:DarkGray;
+      color: White;
+      font-weight:bold;
+    }
+    //2行目（曜日行）
+     tr:nth-child(2) {
+      background-color:#E0E0E0;
+      color:#404040;
+      font-weight:normal;
+    }
+  }
+
+  tbody {
+    td{height: 2em;}
+  }
+
+  //土日の列に色付け
+  td:nth-child(1) { color: red; }
+  td:nth-child(7) { color: blue; }
+  
+  //月が異なる場合土日でもグレーに
+  .otherMonth{
+      color:DarkGray!important;
+  }
+
 }

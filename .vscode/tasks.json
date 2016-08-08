@@ -12,6 +12,12 @@
       "taskName": "default",
       "isBuildCommand": true,
       "showOutput": "always"
+    },
+    {
+      "taskName": "watch",
+      "isBuildCommand": true,
+      "showOutput": "always"
+      //"problemMatcher": "$tsc"
     }
   ]
 }

@@ -6,7 +6,7 @@ var sass = require('gulp-sass');
 
 gulp.task('clientBuild', function() {
     var config = require('./webpack.config.js');
-    return gulp.src('./client/*.jsx')
+    return gulp.src('./client/entry.jsx')
         .pipe(webpack(config))
         .pipe(gulp.dest('./'));
 });
@@ -18,5 +18,9 @@ gulp.task('sassBuild', function() {
 });
 
 gulp.task('default', gulp.parallel('clientBuild','sassBuild'));
+
+gulp.task('watch', function(){
+  gulp.watch('./client/scss/*.scss',  gulp.parallel('sassBuild'));
+});
 
 

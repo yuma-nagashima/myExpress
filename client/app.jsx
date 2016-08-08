@@ -4,6 +4,7 @@ import { IndexRoute, Link, Router, Route } from 'react-router';
 import BrowserHistory from 'react-router/lib/BrowserHistory';
 
 import PageA from './components/PageA'
+import PageB from './components/PageB'
 
 class App extends Component {
     render() {
@@ -25,12 +26,6 @@ class App extends Component {
 class Index extends Component {
     render() {
         return <div>Index</div>;
-    }
-}
-
-class PageB extends Component {
-    render() {
-        return <div>B</div>;
     }
 }
 
